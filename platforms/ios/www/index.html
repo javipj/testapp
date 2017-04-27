@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="assets/js/jquery-1.7.2.min.js"></script>
+
+    <script>
+        $(document).bind('mobileinit',function(){
+            $.mobile.pushStateEnabled = false;
+        });
+    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mi primera página</title>
+    <link rel="stylesheet" href="assets/css/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="assets/css/jquery.mobile.structure-1.4.5.min.css" />
+    <link rel="stylesheet" href="assets/css/jquery.mobile.theme-1.4.5.min.css" />
+    <script src="assets/js/jquery.mobile-1.4.5.min.js"></script>
+
+    <script type="text/javascript">
+        $( '#saludo' ).live( 'pagebeforeshow',function(event, ui){
+            $('#mensaje').text($('#nombre').val());
+        });
+    </script>
+</head>
+
+<body>
+
+<div id="pagina" data-role="page">
+
+    <header data-role="header" data-position="fixed">
+        <h1>Cabecera de la página</h1>
+    </header>
+
+    <div data-role="content">
+            <input type="text" name="nombre" id="nombre" value="" placeholder="Introduce tu nombre"  />
+            <a href="#saludo" data-role="button" data-icon="check">Aceptar</a>   
+            <a href="#pagina2" class="ui-btn">cambiar página</a>
+          
+    </div><!-- /content -->
+
+    <footer data-role="footer" data-position="fixed">
+        <h4>Pie de página</h4>
+    </footer><!-- /footer -->
+
+</div><!-- /page -->
+
+
+<div id="pagina2" data-role="page">
+
+    <div  data-role="header" data-position="fixed">
+        <a class="ui-btn-left ui-icon-back" href="#pagina" ></a>
+
+        <h1>Cabecera de la página</h1>
+    </div>
+
+    <div data-role="content">
+          <form>
+            <label for="textinput-s">Text Input:</label>
+            <input type="text" name="textinput-s" id="textinput-s" placeholder="Text input" value="" data-clear-btn="true">
+            <label for="select-native-s">Select:</label>
+            <select name="select-native-s" id="select-native-s">
+                <option value="small">One</option>
+                <option value="medium">Two</option>
+                <option value="large">Three</option>
+            </select>
+            <label for="slider-s">Input slider:</label>
+            <input type="range" name="slider-s" id="slider-s" value="25" min="0" max="100" data-highlight="true">
+    </form> 
+    </div><!-- /content -->
+
+    <footer data-role="footer" data-position="fixed">
+        <h4>Pie de página</h4>
+    </footer><!-- /footer -->
+
+</div><!-- /page -->
+
+
+<div id="saludo" data-role="dialog">
+
+    <div data-role="header">
+        <h1>Cabecera del cuadro de diálogo</h1>
+
+    </div>
+
+    <div data-role="content">
+        <h1>Hola <span id="mensaje"></span></h1>
+        <a href="#" data-role="button" data-rel="back">Cerrar</a>
+    </div>
+</div>
+
+    <script type="text/javascript" src="cordova.js"></script>
+</body>
+</html>
+
+
